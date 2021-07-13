@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "917532198191",
+    "project_id": "billetera-app-58850",
+    "storage_bucket": "billetera-app-58850.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:917532198191:android:55d57e87a60676858a4dda",
+        "android_client_info": {
+          "package_name": "com.example.billeteramovilapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "917532198191-c2u833te1amoo14hibs0uqcgukvc2p4j.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.billeteramovilapp",
+            "certificate_hash": "1b8541e3a889279cdf387f736895563d30aa1c4f"
+          }
+        },
+        {
+          "client_id": "917532198191-fojdnlcb765noiq2ip9mcjnkjpqcrmlu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDtbQrW3EkST5LtY2oeiqHOB7U5Q5xUnPQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "917532198191-fojdnlcb765noiq2ip9mcjnkjpqcrmlu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
