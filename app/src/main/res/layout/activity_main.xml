@@ -194,6 +194,7 @@
                     android:layout_gravity="center_vertical|center_horizontal">
 
                     <ImageView
+                        android:id="@+id/budgetBtnImageView"
                         android:layout_width="60dp"
                         android:layout_height="60dp"
                         android:src="@drawable/budget"/>
@@ -227,6 +228,7 @@
                     android:layout_gravity="center_vertical|center_horizontal">
 
                     <ImageView
+                        android:id="@+id/todayBtnImageView"
                         android:layout_width="60dp"
                         android:layout_height="60dp"
                         android:src="@drawable/today"/>
@@ -260,6 +262,7 @@
                     android:layout_gravity="center_vertical|center_horizontal">
 
                     <ImageView
+                        android:id="@+id/weekBtnImageView"
                         android:layout_width="60dp"
                         android:layout_height="60dp"
                         android:src="@drawable/week"/>
