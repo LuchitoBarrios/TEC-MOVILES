@@ -12,7 +12,7 @@ public class MainActivity extends AppCompatActivity {
 
     //private CardView budgetCardView,todayCardView;
 
-    private ImageView weekBtnImageView,todayBtnImageView,budgetBtnImageView;
+    private ImageView weekBtnImageView,todayBtnImageView, monthBtnImageView, budgetBtnImageView,analyticsImageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +21,9 @@ public class MainActivity extends AppCompatActivity {
 
         weekBtnImageView = findViewById(R.id.weekBtnImageView);
         todayBtnImageView = findViewById(R.id.todayBtnImageView);
+        monthBtnImageView = findViewById(R.id.monthBtnImageView);
         budgetBtnImageView = findViewById(R.id.budgetBtnImageView);
+        analyticsImageView = findViewById(R.id.analyticsImageView);
 
 
         budgetBtnImageView.setOnClickListener(new View.OnClickListener() {
@@ -44,6 +46,24 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this,WeekSpendingActivity.class);
+                intent.putExtra("type","week");
+                startActivity(intent);
+            }
+        });
+
+        monthBtnImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,WeekSpendingActivity.class);
+                intent.putExtra("type","month");
+                startActivity(intent);
+            }
+        });
+
+        analyticsImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,ChooseAnalyticActivity.class);
                 startActivity(intent);
             }
         });

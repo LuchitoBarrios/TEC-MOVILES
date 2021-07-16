@@ -20,6 +20,7 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import org.joda.time.DateTime;
+import org.joda.time.Months;
 import org.joda.time.MutableDateTime;
 import org.joda.time.Weeks;
 
@@ -40,6 +41,8 @@ public class WeekSpendingActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private String onlineUserId = "";
     private DatabaseReference expensesRef;
+
+    private String type = "";
 
 
     @Override
@@ -71,8 +74,57 @@ public class WeekSpendingActivity extends AppCompatActivity {
 
         recyclerView.setAdapter(weekSpendingAdapter);
 
-        readWeekSpendingItems();
+        if(getIntent().getExtras()!=null){
+            type = getIntent().getStringExtra("type");
+            if(type.equals("week")){
+                readWeekSpendingItems();
+            }else if(type.equals("month")){
+                readMonthSpendingItems();
+            }
+        }
+
+
     }
+
+    private void readMonthSpendingItems() {
+        MutableDateTime epoch = new MutableDateTime();
+        epoch.setDate(0);
+        DateTime now = new DateTime();
+        Months months = Months.monthsBetween(epoch, now);
+
+        expensesRef = FirebaseDatabase.getInstance().getReference("expenses").child(onlineUserId);
+        Query query = expensesRef.orderByChild("month").equalTo(months.getMonths());
+        query.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                myDataList.clear();
+                for(DataSnapshot dataSnapshot: snapshot.getChildren()) {
+                    Data data = dataSnapshot.getValue(Data.class);
+                    myDataList.add(data);
+                }
+
+                weekSpendingAdapter.notifyDataSetChanged();
+                progressBar.setVisibility(View.GONE);
+
+                int totalAmount = 0;
+                for(DataSnapshot ds: snapshot.getChildren()) {
+                    Map<String, Object> map = (Map<String, Object>) ds.getValue();
+                    Object total = map.get("amount");
+                    int pTotal = Integer.parseInt(String.valueOf(total));
+                    totalAmount += pTotal;
+
+                    totalWeekAmountTextView.setText("Total de Gastos del Mes: S/." + totalAmount);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+    }
+
 
     private void readWeekSpendingItems() {
 

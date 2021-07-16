@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BilleteraMovilApp">
-        <activity android:name=".WeekSpendingActivity"></activity>
+        <activity android:name=".DailyAnalyticsActivity"></activity>
+        <activity android:name=".ChooseAnalyticActivity" />
+        <activity android:name=".WeekSpendingActivity" />
         <activity android:name=".TodaySpendingActivity" />
         <activity android:name=".BudgetActivity" />
         <activity android:name=".MainActivity" />
